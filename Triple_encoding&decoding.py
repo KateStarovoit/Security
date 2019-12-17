@@ -70,7 +70,7 @@ def triple_encoding(strng,n):
 
     alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
     f = lambda arg: alp[(alp.index(arg[0]) + alp.index(arg[1]) % 88) % 88]
-    return ''.join(map(f, zip(returned_str, keytext)))
+    return ''.join(map(f, zip(returned_str, cycle(keytext))))
 
 def triple_decoding(strng,n):
     keytext = ""
@@ -87,7 +87,7 @@ def triple_decoding(strng,n):
 
     alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
     f = lambda arg: alp[alp.index(arg[0]) - alp.index(arg[1]) % 88]
-    strng=''.join(map(f, zip(strng, keytext)))
+    strng=''.join(map(f, zip(strng, cycle(keytext))))
 
     def rail_pattern(n):
         r = list(range(n))
