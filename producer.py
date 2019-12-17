@@ -81,8 +81,8 @@ def triple_encoding(strng,n):
             elif len(keytext) >= n:
                 break
 
-    alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*()_+-=:.<>?/1234567890'
-    f = lambda arg: alp[(alp.index(arg[0]) + alp.index(arg[1]) % 87) % 87]
+    alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
+    f = lambda arg: alp[(alp.index(arg[0]) + alp.index(arg[1]) % 88) % 88]
     return ''.join(map(f, zip(returned_str, keytext)))
 generated_message="" #Повідомлення що генерую продюсер
 returned_encoded_message=triple_encoding(generated_message,key) #Наше закодоване повідомлення
