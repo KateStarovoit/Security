@@ -1,5 +1,6 @@
 import random
 from math import *
+from itertools import cycle
 """Згенеруємо відкритий і закритий ключі RSA"""
 def gener_RSA(key):
     lst=[]
@@ -73,7 +74,7 @@ def triple_decoding(strng,n):
 
     alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
     f = lambda arg: alp[alp.index(arg[0]) - alp.index(arg[1]) % 88]
-    strng=''.join(map(f, zip(strng, keytext)))
+    strng=''.join(map(f, zip(strng, cycle(keytext))))
 
     def rail_pattern(n):
         r = list(range(n))
