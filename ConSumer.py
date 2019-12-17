@@ -71,8 +71,8 @@ def triple_decoding(strng,n):
             elif len(keytext) >= n:
                 break
 
-    alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*()_+-=:.<>?/1234567890'
-    f = lambda arg: alp[alp.index(arg[0]) - alp.index(arg[1]) % 87]
+    alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
+    f = lambda arg: alp[alp.index(arg[0]) - alp.index(arg[1]) % 88]
     strng=''.join(map(f, zip(strng, keytext)))
 
     def rail_pattern(n):
