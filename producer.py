@@ -1,4 +1,4 @@
-
+from itertools import cycle
 from random import random
 """Отрмуємо від консюмера відкритий ключ і ключ який треба закодувати"""
 open_key=(5, 155189)
@@ -83,7 +83,7 @@ def triple_encoding(strng,n):
 
     alp = 'abcdefghijklmnopqrstuvwxyz.,@/ABCDEFGHIJKLMNOPQRSTUVWXYZ~`!#$%^&*() _+-=:.<>?/1234567890'
     f = lambda arg: alp[(alp.index(arg[0]) + alp.index(arg[1]) % 88) % 88]
-    return ''.join(map(f, zip(returned_str, keytext)))
+    return ''.join(map(f, zip(returned_str, cycle(keytext))))
 generated_message="" #Повідомлення що генерую продюсер
 returned_encoded_message=triple_encoding(generated_message,key) #Наше закодоване повідомлення
 
