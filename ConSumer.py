@@ -1,9 +1,38 @@
+import random
+from math import *
+"""Згенеруємо відкритий і закритий ключі RSA"""
+def gener_RSA(key):
+    lst=[]
+    for i in range(500):
+        x=""
+        j=2
+        while j<=sqrt(i):
+            if i%j==0:
+                x="y"
+            j+=1
+        if x=="":
+            lst.append(i)
+    lst.remove(0)
+    lst.remove(1)
+    p=random.choice(lst)
+    q=random.choice(lst)
+    n=p*q
+    y=(p-1)*(q-1)
+    for i in lst:
+        if y<i:
+            lst.remove(i)
+    e=random.choice(lst)
+    open_key=(e,n)
+    d=1
+    for i in range(1,1000000):
+        if (i*e)%y==1:
+            d=i
+            break
+    secret_key=(d,n)
+    return key , open_key,secret_key
+
+
 """Згенеровані відкритий ключ і звичайний ключ, який потрібно закодувати"""
-
-
-
-
-
 x=int(input(''))
 RSA=gener_RSA(x)
 secret_key=RSA[2]
